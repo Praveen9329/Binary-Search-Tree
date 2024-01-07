@@ -1,0 +1,68 @@
+package BinarySearchTree;
+
+
+
+
+class Node
+{
+	char key;
+	Node left,right;
+	Node(char key)
+	{
+		this.key=key;
+		
+	}
+}
+class BinarySolution
+{
+	Node root;
+	public void insertKey(char key)
+	{
+	   root=insertTree(root,key);	
+	}
+public	Node insertTree(Node root,char key)
+	{
+		if(root==null)
+		{
+			root= new Node(key);
+			return root;
+		}
+		if(key<root.key)
+		{
+			root.left=insertTree(root.left, key);
+		}
+		else if(key>root.key)
+		{
+			root.right=insertTree(root.right, key);
+		}
+		return root;
+	}
+	
+	public void preOrdertraversel(Node n)
+	{
+		if(n!=null)
+		{
+			System.out.print(n.key+" ");
+			preOrdertraversel(n.left);
+			preOrdertraversel(n.right);
+		}
+	}
+	
+}
+
+public class BinarySerachTree {
+
+	public static void main(String[] args) {
+		
+   BinarySolution b1=new BinarySolution();
+    b1.insertKey('C');
+    b1.insertKey('I');
+    b1.insertKey('B');
+    b1.insertKey('G');
+    b1.insertKey('M');
+    b1.insertKey('A');
+
+   
+    b1.preOrdertraversel(b1.root);
+	}
+}
